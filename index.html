@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>YingYuan</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css">
+  <script data-main="./scripts/config.js" src="./scripts/vendor/require.min.js"></script>
+</head>
+
+<body>
+
+<div id="viewport">
+  <div id="scrollable">
+    <div class="screen">
+      <div class="board black-box" id="board1">
+        <div style="width:200px;float:left">
+          <p>col 1</p>
+          <p>col 1</p>
+          <p>col 1</p>
+        </div>
+        <div style="width:200px;float:left" class="grey-box">
+          <div id="nav-for-board-1" style="position:fixed;margin-top:0;margin-left:0;background-color:rgba(255,0,0,0.5);">
+            nav 2
+            <div style="position:absolute;top:50px;left:50px;width:50px;height:50px;background-color:rgba(0,255,0,0.5);"></div>
+          </div>
+          <p>col 2</p>
+          <p>col 2</p>
+          <p>col 2</p>
+        </div>
+      </div>
+    </div>
+    <div class="screen">
+      <div class="board grey-box" id="board2">
+        Hello World 2
+      </div>
+    </div>
+    <div class="screen">
+      <div class="board black-box" id="board3">
+        Hello World 3
+      </div>
+    </div>
+    <div class="screen">
+      <div class="board grey-box" id="board3">
+        Hello World 4
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="btn-box">
+  <button id="left">&lt;&lt;Left</button>
+  <button id="right">Right&gt;&gt;</button>
+  <button id="scale">Scale</button>
+</div>
+
+</body>
+</html>
