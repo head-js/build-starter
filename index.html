@@ -5,36 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>YingYuan</title>
   <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css">
-  <script data-main="./scripts/config.js" src="./scripts/vendor/require.min.js"></script>
+  <link rel="stylesheet" type="text/css" media="screen" href="./css/font-awesome.min.css">
+
+  <script src="./scripts/seajs/sea.js" data-config="./scripts/seajs/config" data-main="./scripts/app"></script>
+  <script src="./scripts/seajs/plugin-shim.js"></script>
 </head>
 
 <body>
 
 <div id="viewport">
   <div id="scrollable">
-    <div class="screen">
-      <div class="board black-box" id="board1">
-        <div style="width:200px;float:left">
-          <p>col 1</p>
-          <p>col 1</p>
-          <p>col 1</p>
-        </div>
-        <div style="width:200px;float:left" class="grey-box">
-          <div id="nav-for-board-1" style="position:fixed;margin-top:0;margin-left:0;background-color:rgba(255,0,0,0.5);">
-            nav 2
-            <div style="position:absolute;top:50px;left:50px;width:50px;height:50px;background-color:rgba(0,255,0,0.5);"></div>
-          </div>
-          <p>col 2</p>
-          <p>col 2</p>
-          <p>col 2</p>
-        </div>
+
+    <div class="action-bar-top" id="action-bar">
+      <div class="action-bar-title">favorite</div>
+    </div>
+
+    <div class="pie-menu-bottom" id="pie-menu">
+      <ul>
+        <li><i class="icon-home"></i></li>
+        <li><i class="icon-edit"></i></li>
+        <li><i class="icon-arrow-left"></i></li>
+      </ul>
+      <div id="toggle-pie-menu"></div>
+    </div>
+
+    <div class="screen current">
+      <div class="board has-bar-top" id="brd-fav">
+        loading...
       </div>
     </div>
+
     <div class="screen">
-      <div class="board grey-box" id="board2">
-        Hello World 2
+      <div class="board has-bar-top has-bar-bottom" id="brd-board">
+        loading...
       </div>
     </div>
+
     <div class="screen">
       <div class="board black-box" id="board3">
         Hello World 3

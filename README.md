@@ -1,7 +1,18 @@
-### YingYuan 樱园
+###basic structure
 
-a webapp bootstrap, trying to facilitate the control of uiflow.
 
-project is still being initialized on branch [gh-pages](https://github.com/shuaishuai/yingyuan/tree/gh-pages).
+    +++++++++++++^^^^^^^^^^^^^+++++++++++++++++++++++++++
+    +            ^ ######### ^                          +
+    +            ^ #OOOOOOO# ^                          +
+    +            ^ #       # ^                          +
+    +            ^ #       # ^                          +
+    +            ^ #       # ^                          +
+    +            ^ #       # ^                          +
+    +            ^ #OOOOOOO# ^                          +
+    +            ^ ######### ^                          +
+    +++++++++++++^^^^^^^^^^^^^+++++++++++++++++++++++++++
 
-[open on mobile devices to try it](http://shuaishuai.github.com/yingyuan/mobile.html).
+    ++  #scrollable
+    ^^  #viewport
+    ##  .screen
+    OO  #nav-top/#nav-bottom

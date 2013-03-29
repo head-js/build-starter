@@ -38,20 +38,27 @@
     $(els.board).width(viewport.width).height(viewport.height);
   };
 
-  var _roll = function () {
+  var _roll = function (callback) {
     var $currentScreen = $screens[pos.current];
     $scrollable.animate(
       { left: $scrollable.offset().left - $currentScreen.offset().left + "px" },
       { duration: 'fast', queue: false }
     );
+
+    if (callback) {
+      callback();
+    }
+
+    _toggleCurrent(pos.current, true)();
   }
 
   var _rollLeft = function () {
     if (pos.current + 1 > pos.end) {
       return;
     } else {
+      var prevPos = pos.current;
       pos.current += 1;
-      _roll();
+      _roll(_toggleCurrent(prevPos, false));
     }
   };
 
@@ -59,32 +66,49 @@
     if (pos.current - 1 < pos.start) {
       return;
     } else {
+      var prevPos = pos.current;
       pos.current -= 1;
-      _roll();
+      _roll(_toggleCurrent(prevPos, false));
     }
   };
 
-  var YYM = new (function () {
-    return {
-      resize: _resize,
-      rollLeft: _rollLeft,
-      rollRight: _rollRight,
-
-      t: function () {
-        return [
-          viewport.width,
-          viewport.height,
-          pos.current,
-          $screens[pos.current].offset().left
-        ];
-      },
-
-      version: function () {
-        var version = "ver 0.0.0";
-        console.log(version);
+  var _toggleCurrent = function (pos, isCurrent) {
+    return function () {
+      if (isCurrent) {
+        $screens[pos].addClass('current');
+      } else {
+        $screens[pos].removeClass('current');
       }
-    };
-  })();
+    }
+  };
+
+  var _init = function () {
+    $('.board').on('scroll', function (e) {
+      var $nav = $screens[pos.current].find('.nav-top');
+      $nav.css('top', e.currentTarget.scrollTop + 'px')
+    });
+  };
+  _init();
+
+  var YYM = {
+    resize: _resize,
+    rollLeft: _rollLeft,
+    rollRight: _rollRight,
+
+    t: function () {
+      return [
+        viewport.width,
+        viewport.height,
+        pos.current,
+        $screens[pos.current].offset().left
+      ];
+    },
+
+    version: function () {
+      var version = "ver 0.0.0";
+      console.log(version);
+    }
+  };
 
   window.YYM = YYM;
 })(window.jQuery);
