@@ -1,5 +1,0 @@
-<ul>
-  {#boards}
-  <li><i>+</i><span class='id-width'>{boardname}</span><small>{boardnameZh}</small></li>
-  {/boards}
-</ul>

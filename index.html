@@ -7,37 +7,28 @@
   <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css">
   <link rel="stylesheet" type="text/css" media="screen" href="./css/font-awesome.min.css">
 
-  <script src="./scripts/seajs/sea.js" data-config="./scripts/seajs/config" data-main="./scripts/app"></script>
+  <script src="./scripts/seajs/sea.js" data-config="./scripts/seajs/config" data-main="./scripts/main"></script>
   <script src="./scripts/seajs/plugin-shim.js"></script>
 </head>
 
 <body>
 
 <div id="viewport">
-  <div id="scrollable">
+  <div id="scrollable" ng-controller="yanxi.ctrl.Main">
 
-    <div class="action-bar-top" id="action-bar">
-      <div class="action-bar-title">favorite</div>
-    </div>
+    <ng-include src="partial" ng-controller="yanxi.ctrl.ActionBar"></ng-include>
 
-    <div class="pie-menu-bottom" id="pie-menu">
-      <ul>
-        <li><i class="icon-home"></i></li>
-        <li><i class="icon-edit"></i></li>
-        <li><i class="icon-arrow-left"></i></li>
-      </ul>
-      <div id="toggle-pie-menu"></div>
-    </div>
+    <ng-include src="partial" ng-controller="yanxi.ctrl.PieMenu"></ng-include>
 
     <div class="screen current">
-      <div class="board has-bar-top" id="brd-fav">
-        loading...
+      <div class="board has-bar-top" id="brd-fav"
+        ng-include="partial" ng-controller="yanxi.ctrl.Fav">
       </div>
     </div>
 
     <div class="screen">
-      <div class="board has-bar-top has-bar-bottom" id="brd-board">
-        loading...
+      <div class="board has-bar-top" id="brd-board"
+        ng-include="partial" ng-controller="yanxi.ctrl.Board">
       </div>
     </div>
 
@@ -57,7 +48,6 @@
 <div id="btn-box">
   <button id="left">&lt;&lt;Left</button>
   <button id="right">Right&gt;&gt;</button>
-  <button id="scale">Scale</button>
 </div>
 
 </body>

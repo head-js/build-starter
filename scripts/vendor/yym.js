@@ -1,3 +1,5 @@
+// TODO: this should be a directive?
+
 (function ($) {
   var viewport = {
     width: window.innerWidth,
@@ -40,10 +42,7 @@
 
   var _roll = function (callback) {
     var $currentScreen = $screens[pos.current];
-    $scrollable.animate(
-      { left: $scrollable.offset().left - $currentScreen.offset().left + "px" },
-      { duration: 'fast', queue: false }
-    );
+    $scrollable.css("left", $scrollable.offset().left - $currentScreen.offset().left + "px");
 
     if (callback) {
       callback();
@@ -83,10 +82,10 @@
   };
 
   var _init = function () {
-    $('.board').on('scroll', function (e) {
-      var $nav = $screens[pos.current].find('.nav-top');
-      $nav.css('top', e.currentTarget.scrollTop + 'px')
-    });
+    // $('.board').on('scroll', function (e) {
+    //   var $nav = $screens[pos.current].find('.nav-top');
+    //   $nav.css('top', e.currentTarget.scrollTop + 'px')
+    // });
   };
   _init();
 

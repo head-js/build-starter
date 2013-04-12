@@ -1,26 +1,8 @@
-define(function(require) {
-  var Settings = require('src/settings')
-  window.Yanxi = new Settings({ appRoot: "/notset/" });
+define(function (require) {
+    var angular     = require('angular'),
+        controllers = require('src/controllers/__init__');
 
-  var YYM = require('yym');
-  window.YYM.resize(true);
+    var hmTouchevents = require('angular-hammer');
 
-  $(window).on('orientationchange', function() {
-    window.YYM.resize(true);
-  });
-
-  $("#left").click(function() {
-    window.YYM.rollLeft();
-  });
-
-  $("#right").click(function() {
-    window.YYM.rollRight();
-  });
-
-  $("#scale").click(function() {
-    alert(YYM.t());
-  });
-
-  var mainView = require('src/views/main');
-  new mainView();
+    return angular.module('yanxi', ['yanxi.controllers', 'hmTouchevents']);
 });

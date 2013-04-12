@@ -1,4 +1,7 @@
-define(function () {
+define(function (require) {
+  var _        = require('underscore'),
+      Backbone = require('backbone');
+
   var Settings = function(opts) {
     if (!opts) opts = {};
 

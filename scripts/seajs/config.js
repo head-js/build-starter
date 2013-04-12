@@ -6,9 +6,14 @@ seajs.config({
   paths: {},
 
   alias: {
+    'prefix': 'prefix',
     'jquery': {
       src: 'vendor/jquery.min',
       exports: '$'
+    },
+    'angular': {
+      src: 'vendor/angular.min',
+      exports: 'angular'
     },
     'underscore': {
       src: 'vendor/lodash.min',
@@ -23,10 +28,10 @@ seajs.config({
       src: 'vendor/dust.full.linkedin.js',
       exports: 'dust'
     },
-    'hammer': {
-      src: 'vendor/jquery.hammer.min',
-      deps: ['jquery'],
-      exports: 'Hammer'
+    'angular-hammer': {
+      src: 'vendor/angular-hammer',
+      deps: ['angular', 'vendor/hammer.min'],
+      exports: 'ngHammer'
     },
     'yym': {
       src: 'vendor/yym',
@@ -35,8 +40,5 @@ seajs.config({
     }
   },
 
-  preload: [
-    'vendor/jquery.min',
-    'vendor/jquery.hammer.min',
-  ]
+  preload: []
 });
