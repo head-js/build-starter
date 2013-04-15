@@ -1,11 +1,5 @@
 // TODO: this should be a directive?
-
 (function ($) {
-  var viewport = {
-    width: window.innerWidth,
-    height: window.innerHeight
-  };
-
   var els = {
     viewport: "#viewport",
     scrollable: "#scrollable",
@@ -13,6 +7,7 @@
     board: ".board"
   };
 
+  // cache-able
   var $viewport = $(els.viewport);
   var $scrollable = $(els.scrollable);
   var $screens = (function (elements) {
@@ -22,6 +17,16 @@
     }
     return s;
   }($(els.screen)));
+
+  //
+  var scrollable_width = 100.0 * $screens.length + "%";
+  $scrollable.width(scrollable_width);
+  var screen_width = 100.0 / $screens.length + "%";
+  for (var i = 0; i < $screens.length; i++) {
+    $screens[i].width(screen_width);
+  }
+
+  //
   var pos = {
     start: 0,
     end: $screens.length - 1,
@@ -30,19 +35,14 @@
 
   var _resize = function (isOrientationChange) {
     if (isOrientationChange) {
-      viewport.width = window.innerWidth;
-      viewport.height = window.innerHeight;
-      $viewport.width(viewport.width).height(viewport.height);
+      $viewport.width(window.innerWidth).height(window.innerHeight);
       // todo
       // $scrollable.css("left", -1 * pos.current * viewport.width + "px");
     }
-    $(els.screen).width(viewport.width);
-    $(els.board).width(viewport.width).height(viewport.height);
   };
 
   var _roll = function (callback) {
-    var $currentScreen = $screens[pos.current];
-    $scrollable.css("left", $scrollable.offset().left - $currentScreen.offset().left + "px");
+    $scrollable.css('left', -100 * pos.current + '%');
 
     if (callback) {
       callback();

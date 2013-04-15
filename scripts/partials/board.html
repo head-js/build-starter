@@ -1,5 +1,5 @@
 <ul>
-  <li ng-repeat="pst in posts">
+  <li ng-repeat="pst in posts" hm-tap="gotoPost(pst)">
     <i>+</i>
     <span class='id-width'>{{pst.owner}}</span><small>{{pst.title}}</small></li>
   </li>

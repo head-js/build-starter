@@ -16,9 +16,9 @@
 <div id="viewport">
   <div id="scrollable" ng-controller="yanxi.ctrl.Main">
 
-    <ng-include src="partial" ng-controller="yanxi.ctrl.ActionBar"></ng-include>
+    <ng-include src="partial" ng-controller="yanxi.ctrl.Loading"></ng-include>
 
-    <ng-include src="partial" ng-controller="yanxi.ctrl.PieMenu"></ng-include>
+    <ng-include src="partial" ng-controller="yanxi.ctrl.ActionBar"></ng-include>
 
     <div class="screen current">
       <div class="board has-bar-top" id="brd-fav"
@@ -33,10 +33,11 @@
     </div>
 
     <div class="screen">
-      <div class="board black-box" id="board3">
-        Hello World 3
+      <div class="board has-bar-top" id="brd-post"
+        ng-include="partial" ng-controller="yanxi.ctrl.Post">
       </div>
     </div>
+
     <div class="screen">
       <div class="board grey-box" id="board3">
         Hello World 4

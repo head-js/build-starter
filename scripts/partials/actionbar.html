@@ -1,3 +1,21 @@
-<div class="action-bar-top" id="action-bar">
-  <div class="action-bar-title">{{current.abTitle}}</div>
+<div class="action-bar-top" ng-class="{'action-bar-hide': !settings.hasTop }">
+  <div class='action-bar-back' ng-class="{'action-bar-hide': !settings.hasBack}"></div>
+  <div class="action-bar-title">{{title}}</div>
+</div>
+
+<div class="action-bar-bottom" ng-class="{'action-bar-hide': !settings.hasBottom }">
+  <ul>
+    <li><i class="icon-chevron-down"></i></li>
+    <li><i class="icon-chevron-up"></i></li>
+    <li><i class="icon-comments"></i></li>
+  </ul>
+</div>
+
+<div class="pie-menu-bottom" ng-class="{'action-bar-hide': !settings.hasPie }">
+  <ul>
+    <li><i class="icon-home"></i></li>
+    <li><i class="icon-edit"></i></li>
+    <li><i class="icon-arrow-left"></i></li>
+  </ul>
+  <div id="toggle-pie-menu" hm-tap="togglePieMenu($event)"></div>
 </div>
