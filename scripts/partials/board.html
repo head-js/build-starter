@@ -1,6 +1,27 @@
-<ul>
-  <li ng-repeat="pst in posts" hm-tap="gotoPost(pst)">
-    <i>+</i>
-    <span class='id-width'>{{pst.owner}}</span><small>{{pst.title}}</small></li>
-  </li>
-</ul>
+<div ng-class="{'loading': loading }">
+  <div class="spin"></div>
+</div>
+
+<div class="action-bar-top" ng-class="{'action-bar-hide': !settings.hasTop }">
+  <a class='action-bar-back' ng-href='#/fav'></a>
+  <div class="action-bar-title">{{title}}</div>
+  <ul class="drop-down">
+    <li><i class="icon-circle-blank"></i></li>
+    <li><i class="icon-circle-blank"></i> new</li>
+    <li><i class="icon-star"></i> star</li>
+    <li><i class="icon-circle"></i> all</li>
+  </ul>
+</div>
+
+<div class="screen">
+<div class="board has-bar-top" id="brd-board">
+  <ul>
+    <li ng-repeat="pst in posts">
+      <a ng-href="#/post/{{pst.id}}">
+        <i>+</i>
+        <span class='id-width'>{{pst.owner}}</span><small>{{pst.title}}</small></li>
+      </a>
+    </li>
+  </ul>
+</div>
+</div>

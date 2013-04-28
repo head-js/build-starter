@@ -1,7 +1,26 @@
-<ul>
-  <li ng-repeat="brd in boards" hm-tap="gotoBoard(brd)">
-    <i>+</i>
-    <span class='id-width'>{{brd.boardname}}</span>
-    <small>{{brd.boardnameZh}}</small>
-  </li>
-</ul>
+<div ng-class="{'loading': loading }">
+  <div class="spin"></div>
+</div>
+
+<div class="action-bar-top">
+  <div class="action-bar-title ng-binding">
+    <div class="current-title">{{title}} 燕曦</div>
+  </div>
+  <div class="action-bar-notice error">
+    success!
+  </div>
+</div>
+
+<div class="screen">
+<div class="board has-bar-top" id="brd-fav">
+  <ul>
+    <li ng-repeat="brd in boards">
+      <a ng-href="#/board/{{brd.boardname}}">
+        <i>+</i>
+        <span class='id-width'>{{brd.boardname}}</span>
+        <small>{{brd.boardnameZh}}</small>
+      </a>
+    </li>
+  </ul>
+</div>
+</div>

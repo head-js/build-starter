@@ -12,44 +12,7 @@
 </head>
 
 <body>
-
-<div id="viewport">
-  <div id="scrollable" ng-controller="yanxi.ctrl.Main">
-
-    <ng-include src="partial" ng-controller="yanxi.ctrl.Loading"></ng-include>
-
-    <ng-include src="partial" ng-controller="yanxi.ctrl.ActionBar"></ng-include>
-
-    <div class="screen current">
-      <div class="board has-bar-top" id="brd-fav"
-        ng-include="partial" ng-controller="yanxi.ctrl.Fav">
-      </div>
-    </div>
-
-    <div class="screen">
-      <div class="board has-bar-top" id="brd-board"
-        ng-include="partial" ng-controller="yanxi.ctrl.Board">
-      </div>
-    </div>
-
-    <div class="screen">
-      <div class="board has-bar-top" id="brd-post"
-        ng-include="partial" ng-controller="yanxi.ctrl.Post">
-      </div>
-    </div>
-
-    <div class="screen">
-      <div class="board grey-box" id="board3">
-        Hello World 4
-      </div>
-    </div>
+  <div id="viewport" ng-view>
   </div>
-</div>
-
-<div id="btn-box">
-  <button id="left">&lt;&lt;Left</button>
-  <button id="right">Right&gt;&gt;</button>
-</div>
-
 </body>
 </html>

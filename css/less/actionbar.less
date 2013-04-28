@@ -1,17 +1,73 @@
 /* 2. Action Bar */
-.action-bar-hide { display: none; }
-
 .action-bar-top, .action-bar-bottom {
   font-size:48px;
-  height: 48px;
+  height: @touch-able;
   position: fixed;
   background-color: rgba(100, 100, 100, 0.5);
-  color: #fff;
   z-index: 99;
   left: 0;
   right: 0;
 }
-.action-bar-top { top:0; }
+.action-bar-top {
+  top:0;
+  ul {
+    float: right;
+    margin-top: -48px;
+    font-size: 18px;
+    height: 48px;
+    overflow-y: hidden;
+    -webkit-transition: height 0.2s ease;
+    li {
+      padding: 0 12px;
+      line-height: 48px;
+      background-color: #555;
+      &:nth-child(1) {
+        background-color: transparent;
+        text-align: right;
+        &::after {
+          content: "";
+          position: absolute;
+          width: 16px;
+          height: 16px;
+          right: 8px;
+          bottom: 8px;
+          background: -webkit-linear-gradient(-45deg,
+                                              rgba(0,0,0,0) 0%,
+                                              rgba(0,0,0,0) 75%,
+                                              rgba(255,255,255,1) 76%,
+                                              rgba(255,255,255,1) 100%);
+        }
+      }
+    }
+  }
+  .action-bar-title {
+    width: 160px;
+    margin: 0 auto;
+    line-height: @touch-able;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    .current-title {
+      position: relative;
+    }
+  }
+  .action-bar-notice {
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    height: 0;
+    overflow-y: hidden;
+    -webkit-transition: height 0.2s ease;
+    &.info {
+      height: 20px;
+      background-color: rgba(00,255,0,0.2);
+    }
+    &.error {
+      height: 20px;
+      background-color: rgba(255,0,0,0.2);
+    }
+  }
+}
 .action-bar-bottom { bottom:0; }
 
 .board.has-bar-top:before, .board.has-bar-bottom:after {

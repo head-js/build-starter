@@ -10,32 +10,33 @@
   // cache-able
   var $viewport = $(els.viewport);
   var $scrollable = $(els.scrollable);
-  var $screens = (function (elements) {
-    var s = [];
-    for (var i = 0; i < elements.length; i++) {
-      s.push($(elements[i]));
-    }
-    return s;
-  }($(els.screen)));
+  // var $screens = (function (elements) {
+  //   var s = [];
+  //   for (var i = 0; i < elements.length; i++) {
+  //     s.push($(elements[i]));
+  //   }
+  //   return s;
+  // }($(els.screen)));
 
   //
-  var scrollable_width = 100.0 * $screens.length + "%";
-  $scrollable.width(scrollable_width);
-  var screen_width = 100.0 / $screens.length + "%";
-  for (var i = 0; i < $screens.length; i++) {
-    $screens[i].width(screen_width);
-  }
+  // var scrollable_width = 100.0 * $screens.length + "%";
+  // $scrollable.width(scrollable_width);
+  // var screen_width = 100.0 / $screens.length + "%";
+  // for (var i = 0; i < $screens.length; i++) {
+  //   $screens[i].width(screen_width);
+  // }
 
   //
   var pos = {
     start: 0,
-    end: $screens.length - 1,
+    // end: $screens.length - 1,
+    end: 4,
     current: 0
   };
 
   var _resize = function (isOrientationChange) {
     if (isOrientationChange) {
-      $viewport.width(window.innerWidth).height(window.innerHeight);
+      // $viewport.width(window.innerWidth).height(window.innerHeight);
       // todo
       // $scrollable.css("left", -1 * pos.current * viewport.width + "px");
     }
@@ -73,11 +74,11 @@
 
   var _toggleCurrent = function (pos, isCurrent) {
     return function () {
-      if (isCurrent) {
-        $screens[pos].addClass('current');
-      } else {
-        $screens[pos].removeClass('current');
-      }
+      // if (isCurrent) {
+      //   $screens[pos].addClass('current');
+      // } else {
+      //   $screens[pos].removeClass('current');
+      // }
     }
   };
 

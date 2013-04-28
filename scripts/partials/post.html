@@ -1,5 +1,35 @@
-<div class="post">
-  <div class="post-title">{{post.title}}</div>
-  <div class="post-owner">{{post.owner}}</div>
-  <div class="post-content">{{post.content}}</div>
+<div ng-class="{'loading': loading }">
+  <div class="spin"></div>
+</div>
+
+<div class="action-bar-top" ng-class="{'action-bar-hide': !settings.hasTop }">
+  <a class='action-bar-back' ng-href='{{backUrl}}'></a>
+  <div class="action-bar-title">{{title}}</div>
+</div>
+
+<div class="action-bar-bottom">
+  <ul>
+    <li><i class="icon-chevron-down"></i></li>
+    <li><i class="icon-chevron-up"></i></li>
+    <li><i class="icon-comments"></i></li>
+  </ul>
+</div>
+
+<div class="pie-menu-bottom" ng-class="{'hide': !settings.hasPie }">
+  <ul>
+    <li><i class="icon-home"></i></li>
+    <li><i class="icon-edit"></i></li>
+    <li><i class="icon-arrow-left"></i></li>
+  </ul>
+  <div id="toggle-pie-menu" hm-tap="togglePieMenu($event)"></div>
+</div>
+
+<div class="screen">
+<div class="board has-bar-top" id="brd-post">
+  <div class="post">
+    <div class="post-title">{{post.title}}</div>
+    <div class="post-owner">{{post.owner}}</div>
+    <div class="post-content">{{post.content}}</div>
+  </div>
+</div>
 </div>
