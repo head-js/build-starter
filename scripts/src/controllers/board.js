@@ -11,6 +11,9 @@ define(function (require) {
       hasPie: false,
       hasBack: false
     };
+    $scope.current = {
+      action_bar_dropdown: false
+    };
 
     $scope.loading = true;
     $timeout(function () {
@@ -19,6 +22,10 @@ define(function (require) {
         $scope.loading = false;
       });
     }, 500);
+
+    $scope.toggleDropDown = function () {
+      $scope.current.action_bar_dropdown = !$scope.current.action_bar_dropdown;
+    };
   };
 
   BoardController.$inject = ['$scope', '$http', '$timeout', '$routeParams'];

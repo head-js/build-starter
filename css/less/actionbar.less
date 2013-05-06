@@ -10,13 +10,21 @@
 }
 .action-bar-top {
   top:0;
-  ul {
+  .drop-down {
     float: right;
     margin-top: -48px;
+    color: #fff;
     font-size: 18px;
     height: 48px;
     overflow-y: hidden;
     -webkit-transition: height 0.2s ease;
+    &.bookmark.on {
+      height: @touch-able * 4;
+    }
+    &.tags.on {
+      height: @touch-able * 4;
+      overflow-y: auto;
+    }
     li {
       padding: 0 12px;
       line-height: 48px;

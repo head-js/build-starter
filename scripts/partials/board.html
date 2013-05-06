@@ -2,11 +2,11 @@
   <div class="spin"></div>
 </div>
 
-<div class="action-bar-top" ng-class="{'action-bar-hide': !settings.hasTop }">
+<div class="action-bar-top" ng-class="{'action-bar-hide': !settings.hasTop}">
   <a class='action-bar-back' ng-href='#/fav'></a>
   <div class="action-bar-title">{{title}}</div>
-  <ul class="drop-down">
-    <li><i class="icon-circle-blank"></i></li>
+  <ul class="bookmark drop-down" ng-class="{'on': current.action_bar_dropdown}">
+    <li ng-click="toggleDropDown()"><i class="icon-circle-blank"></i></li>
     <li><i class="icon-circle-blank"></i> new</li>
     <li><i class="icon-star"></i> star</li>
     <li><i class="icon-circle"></i> all</li>
