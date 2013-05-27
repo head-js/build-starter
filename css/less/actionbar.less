@@ -13,39 +13,44 @@
   .drop-down {
     float: right;
     margin-top: -48px;
-    color: #fff;
     font-size: 18px;
-    height: 48px;
-    overflow-y: hidden;
-    -webkit-transition: height 0.2s ease;
-    &.bookmark.on {
-      height: @touch-able * 4;
+    a {
+      display: block;
+      line-height: 48px;
+      color: #fff;
+      text-align: right;
+      padding-right: 16px;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        right: 8px;
+        bottom: 8px;
+        background: -webkit-linear-gradient(-45deg,
+                                            rgba(0,0,0,0) 0%,
+                                            rgba(0,0,0,0) 75%,
+                                            rgba(255,255,255,1) 76%,
+                                            rgba(255,255,255,1) 100%);
+      }
     }
-    &.tags.on {
-      height: @touch-able * 4;
+    .bookmark, .tags {
+      color: #fff;
+      height: 0px;
+      overflow-y: hidden;
+      -webkit-transition: height 0.2s ease;
+    }
+    .bookmark.on {
+      height: @touch-able * 3;
+    }
+    .tags.on {
+      height: @touch-able * 3;
       overflow-y: auto;
     }
     li {
       padding: 0 12px;
       line-height: 48px;
       background-color: #555;
-      &:nth-child(1) {
-        background-color: transparent;
-        text-align: right;
-        &::after {
-          content: "";
-          position: absolute;
-          width: 16px;
-          height: 16px;
-          right: 8px;
-          bottom: 8px;
-          background: -webkit-linear-gradient(-45deg,
-                                              rgba(0,0,0,0) 0%,
-                                              rgba(0,0,0,0) 75%,
-                                              rgba(255,255,255,1) 76%,
-                                              rgba(255,255,255,1) 100%);
-        }
-      }
     }
   }
   .action-bar-title {
@@ -76,7 +81,19 @@
     }
   }
 }
-.action-bar-bottom { bottom:0; }
+.action-bar-bottom {
+  bottom:0;
+  ul {
+    font-size: 24px;
+    color: #fff;
+    li {
+      width: 31%;
+      display: inline-block;
+      text-align: center;
+      line-height: 48px;
+    }
+  }
+}
 
 .board.has-bar-top:before, .board.has-bar-bottom:after {
   width: 100%;
@@ -107,12 +124,6 @@
   -webkit-transform: rotate(45deg) skew(8deg,8deg);
   border-radius: 4px;
   border-bottom: solid 4px #fff;
-}
-
-.action-bar-bottom > ul > li {
-  width: 31%;
-  display: inline-block;
-  text-align: center;
 }
 
 /* Pie Menu */

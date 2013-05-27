@@ -4,14 +4,18 @@
 
 <div class="action-bar-top">
   <div class="action-bar-title">
-    {{title}} 燕曦
+    {{title}}
   </div>
-  <ul class="tags drop-down" ng-class="{'on': current.action_bar_dropdown}">
-    <li ng-click="toggleDropDown()">&nbsp;</li>
-    <li ng-repeat="tag in tags">
-      <input type="checkbox" />{{tag.name}}
-    </li>
-  </ul>
+  <div class="drop-down">
+    <a ng-click="toggleDropDown()">
+      &nbsp;
+    </a>
+    <ul class="tags" ng-class="{'on': current.action_bar_dropdown}">
+      <li ng-repeat="tag in tags">
+        <input type="checkbox" />{{tag.name}}
+      </li>
+    </ul>    
+  </div>
   <div class="action-bar-notice">
     success!
   </div>
