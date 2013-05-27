@@ -74,14 +74,14 @@
   margin-top: -48px;
   font-size: 18px;
 }
-.action-bar-top .drop-down a {
+.action-bar-top .drop-down .toggle {
   display: block;
   line-height: 48px;
   color: #fff;
   text-align: right;
   padding-right: 16px;
 }
-.action-bar-top .drop-down a::after {
+.action-bar-top .drop-down .toggle::after {
   content: "";
   position: absolute;
   width: 16px;
@@ -90,8 +90,7 @@
   bottom: 8px;
   background: -webkit-linear-gradient(-45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 75%, #ffffff 76%, #ffffff 100%);
 }
-.action-bar-top .drop-down .bookmark,
-.action-bar-top .drop-down .tags {
+.action-bar-top .drop-down .bookmark {
   color: #fff;
   height: 0px;
   overflow-y: hidden;
@@ -100,14 +99,94 @@
 .action-bar-top .drop-down .bookmark.on {
   height: 144px;
 }
-.action-bar-top .drop-down .tags.on {
-  height: 144px;
-  overflow-y: auto;
-}
 .action-bar-top .drop-down li {
   padding: 0 12px;
   line-height: 48px;
   background-color: #555;
+}
+.action-bar-top .popup {
+  float: right;
+  margin-top: -48px;
+  font-size: 18px;
+  height: 48px;
+  width: 48px;
+  position: relative;
+}
+.action-bar-top .popup .open {
+  position: absolute;
+  display: block;
+  line-height: 48px;
+  color: #fff;
+  text-align: right;
+  padding-right: 16px;
+}
+.action-bar-top .popup .open::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: 8px;
+  bottom: 8px;
+  background: -webkit-linear-gradient(-45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 75%, #ffffff 76%, #ffffff 100%);
+}
+.action-bar-top .popup .popup-wrap {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 8%;
+  background-color: rgba(33, 33, 33, 0.5);
+}
+.action-bar-top .popup .popup-wrap.on {
+  display: block;
+}
+.action-bar-top .popup .popup-wrap section {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.action-bar-top .popup .popup-wrap section .close {
+  position: absolute;
+  right: -12px;
+  top: -12px;
+  border: solid 2px #fff;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+}
+.action-bar-top .popup .popup-wrap section ul {
+  height: 100%;
+  overflow-y: auto;
+  border-radius: 8px;
+  background-color: #555;
+}
+.action-bar-top .popup .popup-wrap section ul li {
+  padding: 0 12px;
+  line-height: 48px;
+}
+.action-bar-top .popup .popup-wrap section ul li input[type=checkbox] {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  vertical-align: -2px;
+  border-radius: 2px;
+}
+.action-bar-top .popup .popup-wrap section ul li input[type=checkbox]:checked + label > i {
+  visibility: visible;
+}
+.action-bar-top .popup .popup-wrap section ul li label {
+  position: relative;
+  margin-left: -24px;
+}
+.action-bar-top .popup .popup-wrap section ul li label i {
+  visibility: hidden;
+  margin-right: 6px;
 }
 .action-bar-top .action-bar-title {
   width: 160px;

@@ -14,7 +14,7 @@
     float: right;
     margin-top: -48px;
     font-size: 18px;
-    a {
+    .toggle {
       display: block;
       line-height: 48px;
       color: #fff;
@@ -34,7 +34,7 @@
                                             rgba(255,255,255,1) 100%);
       }
     }
-    .bookmark, .tags {
+    .bookmark {
       color: #fff;
       height: 0px;
       overflow-y: hidden;
@@ -43,15 +43,109 @@
     .bookmark.on {
       height: @touch-able * 3;
     }
-    .tags.on {
-      height: @touch-able * 3;
-      overflow-y: auto;
-    }
     li {
       padding: 0 12px;
       line-height: 48px;
       background-color: #555;
     }
+  }
+  .popup {
+    float: right;
+    margin-top: -48px;
+    font-size: 18px;
+    height: 48px;
+    width: 48px;
+    position: relative;
+    .open {
+      position: absolute;
+      display: block;
+      line-height: 48px;
+      color: #fff;
+      text-align: right;
+      padding-right: 16px;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        right: 8px;
+        bottom: 8px;
+        background: -webkit-linear-gradient(-45deg,
+                                            rgba(0,0,0,0) 0%,
+                                            rgba(0,0,0,0) 75%,
+                                            rgba(255,255,255,1) 76%,
+                                            rgba(255,255,255,1) 100%);
+      }
+    }
+    .popup-wrap {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 8%;
+      background-color: rgba(33,33,33,0.5);
+      &.on {
+        display: block;
+      }
+      section {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        .close {
+          position: absolute;
+          right: @touch-able * -0.25;
+          top: @touch-able * -0.25;
+          border: solid 2px #fff;
+          width: @touch-able * 0.5;
+          height: @touch-able * 0.5;
+          line-height: @touch-able * 0.5;
+          text-align: center;
+          border-radius: 50%;
+          color: #fff;
+        }
+        ul {
+          height: 100%;
+          overflow-y: auto;
+          border-radius: 8px;
+          background-color: #555;
+          li {
+            padding: 0 12px;
+            line-height: 48px;
+            input[type=checkbox] {
+              -webkit-appearance: none;
+              width: 16px;
+              height: 16px;
+              background-color: #fff;
+              vertical-align: -2px;
+              border-radius: 2px;
+              &:checked + label > i {
+                visibility: visible;
+              }
+            }
+            label {
+              i {
+                visibility: hidden;
+                margin-right: 6px;
+              }
+              position: relative;
+              margin-left: -24px;
+            }
+          }
+        }
+      }
+    }
+    // .tags {
+    //   color: #fff;
+    //   height: 0px;
+    //   overflow-y: hidden;
+    //   -webkit-transition: height 0.2s ease;
+    // }
+    // .tags.on {
+    //   height: @touch-able * 3;
+    //   overflow-y: auto;
+    // }
   }
   .action-bar-title {
     width: 160px;

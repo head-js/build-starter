@@ -13,7 +13,8 @@ define(function (require) {
       hasBack: false
     };
     $scope.current = {
-      action_bar_dropdown: false
+      action_bar_dropdown: false,
+      action_bar_popup: false
     };
 
     $scope.loading = true;
@@ -37,6 +38,10 @@ define(function (require) {
 
     $scope.toggleDropDown = function () {
       $scope.current.action_bar_dropdown = !$scope.current.action_bar_dropdown;
+    };
+
+    $scope.togglePopup = function (isOpen) {
+      $scope.current.action_popup = isOpen;
     };
   };
 

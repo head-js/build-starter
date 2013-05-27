@@ -6,15 +6,23 @@
   <div class="action-bar-title">
     {{title}}
   </div>
-  <div class="drop-down">
-    <a ng-click="toggleDropDown()">
-      &nbsp;
+  <div class="popup">
+    <a class="open" ng-click="togglePopup(true)">
+      <i class="icon-tags"></i>
     </a>
-    <ul class="tags" ng-class="{'on': current.action_bar_dropdown}">
-      <li ng-repeat="tag in tags">
-        <input type="checkbox" />{{tag.name}}
-      </li>
-    </ul>    
+    <div class="popup-wrap" ng-class="{'on': current.action_popup}">
+      <section>
+        <a class="close" ng-click="togglePopup(false)">
+          <i class="icon-remove"></i>
+        </a>
+        <ul class="tags">
+          <li ng-repeat="tag in tags">
+            <input type="checkbox" id="tag_{{tag.name}}" />
+            <label for="tag_{{tag.name}}"><i class="icon-ok"></i>{{tag.name}}</label>
+          </li>
+        </ul>
+      </section>
+    </div>
   </div>
   <div class="action-bar-notice">
     success!
