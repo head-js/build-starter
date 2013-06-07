@@ -1,0 +1,68 @@
+/* 3. Basic Styles for Content(Text) */
+.board ul {
+  li {
+    height: @touch-able - 1;
+    line-height: @touch-able - 1;
+    border-bottom: solid 1px #ddd;
+    font-size: 16px;
+    position: relative;
+    &::before, &::after {
+      position: absolute;
+      top: 0;
+      background-color: #ccc;
+      padding: 0 16px;
+      z-index: -1;
+    }
+    &::before {
+      content: "\00D7";
+      left: 0;
+    }
+    &::after {
+      content: "\2606";
+      right: 0;
+    }
+    a {
+      display: block;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      text-decoration: none;
+      color: #333;
+      background-color: #fafafa;
+    }
+    i {
+      display: inline-block;
+      width: 28px;
+      text-align: center;
+      font-style: normal;
+    }
+    small {
+      display: inline-block;
+      font-weight: normal;
+    }
+    .id-width {
+      display: inline-block;
+      width: 120px;
+      font-weight: bold;
+    }
+  }
+  li.flag-0 {
+    i::before { content: "+"; }
+  }
+  li.flag-1 {
+    a { color: #ccc; }
+    i::before { content: ""; }
+  }
+  li.flag-2 {
+    i::before {
+      content: "\2606";
+      font-weight: 100;
+      color: rgba(51,51,51,0.8);
+    }
+  }
+}
+
+.post { font-size: 16px; }
+.post-owner { line-height: 32px; }
+.post-title { line-height: 32px; }
+.post-content { white-space: normal; }

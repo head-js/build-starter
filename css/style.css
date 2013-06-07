@@ -4,6 +4,7 @@
   list-style: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-overflow-scrolling: touch;
+  font-family: Helveica, Arial;
 }
 .hide {
   display: none;
@@ -61,7 +62,7 @@
   font-size: 48px;
   height: 48px;
   position: fixed;
-  background-color: rgba(100, 100, 100, 0.5);
+  background-color: rgba(11, 61, 146, 0.9);
   z-index: 99;
   left: 0;
   right: 0;
@@ -158,35 +159,40 @@
   text-align: center;
   border-radius: 50%;
   color: #fff;
+  background-color: #5f97e2;
 }
 .action-bar-top .popup .popup-wrap section ul {
   height: 100%;
   overflow-y: auto;
-  border-radius: 8px;
-  background-color: #555;
+  border-radius: 4px;
+  background-color: #eee;
 }
 .action-bar-top .popup .popup-wrap section ul li {
   padding: 0 12px;
   line-height: 48px;
+  border-bottom: solid 1px #ccc;
 }
 .action-bar-top .popup .popup-wrap section ul li input[type=checkbox] {
   -webkit-appearance: none;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   background-color: #fff;
-  vertical-align: -2px;
+  vertical-align: -1px;
   border-radius: 2px;
+  box-shadow: 1px 1px 2px rgba(51, 51, 51, 0.25);
 }
 .action-bar-top .popup .popup-wrap section ul li input[type=checkbox]:checked + label > i {
   visibility: visible;
 }
 .action-bar-top .popup .popup-wrap section ul li label {
   position: relative;
-  margin-left: -24px;
+  margin-left: -20px;
+  color: #333;
 }
 .action-bar-top .popup .popup-wrap section ul li label i {
   visibility: hidden;
-  margin-right: 6px;
+  margin-right: 2px;
+  font-size: 20px;
 }
 .action-bar-top .action-bar-title {
   width: 160px;
@@ -250,6 +256,7 @@
   position: absolute;
   left: 0;
   top: 0;
+  color: #fff;
 }
 .action-bar-back:before {
   content: "";
@@ -340,30 +347,67 @@
 .pie-menu-bottom > ul > li:nth-child(2) > i {
   -webkit-transform: rotate(-30deg);
 }
-/* 3. Basic Styles for Yanxi Mobile */
+/* 3. Basic Styles for Content(Text) */
 .board ul li {
   height: 47px;
   line-height: 47px;
+  border-bottom: solid 1px #ddd;
   font-size: 16px;
-  font-weight: bold;
-  border-bottom: solid 1px #505050;
+  position: relative;
+}
+.board ul li::before,
+.board ul li::after {
+  position: absolute;
+  top: 0;
+  background-color: #ccc;
+  padding: 0 16px;
+  z-index: -1;
+}
+.board ul li::before {
+  content: "\00D7";
+  left: 0;
+}
+.board ul li::after {
+  content: "\2606";
+  right: 0;
 }
 .board ul li a {
   display: block;
+  width: 100%;
+  position: absolute;
+  left: 0;
   text-decoration: none;
+  color: #333;
+  background-color: #fafafa;
 }
 .board ul li i {
   display: inline-block;
-  width: 24px;
+  width: 28px;
   text-align: center;
-}
-.board ul li .id-width {
-  display: inline-block;
-  width: 120px;
+  font-style: normal;
 }
 .board ul li small {
   display: inline-block;
   font-weight: normal;
+}
+.board ul li .id-width {
+  display: inline-block;
+  width: 120px;
+  font-weight: bold;
+}
+.board ul li.flag-0 i::before {
+  content: "+";
+}
+.board ul li.flag-1 a {
+  color: #ccc;
+}
+.board ul li.flag-1 i::before {
+  content: "";
+}
+.board ul li.flag-2 i::before {
+  content: "\2606";
+  font-weight: 100;
+  color: rgba(51, 51, 51, 0.8);
 }
 .post {
   font-size: 16px;

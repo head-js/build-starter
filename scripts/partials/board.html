@@ -20,10 +20,10 @@
 <div class="screen">
 <div class="board has-bar-top" id="brd-board">
   <ul>
-    <li ng-repeat="pst in posts">
-      <a ng-href="#/post/{{pst.id}}">
-        <i>+</i>
-        <span class='id-width'>{{pst.owner}}</span><small>{{pst.title}}</small></li>
+    <li class="flag-{{pst.flag}}" ng-repeat="pst in posts">
+      <a hm-dragright="read($event)">
+        <span class='id-width'>{{pst.owner}}</span>
+        <span>{{pst.title}}</span>
       </a>
     </li>
   </ul>

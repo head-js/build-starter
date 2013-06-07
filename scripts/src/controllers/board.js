@@ -1,5 +1,6 @@
 define(function (require) {
-  var prefix = require('prefix');
+  var $      = require('jquery'),
+      prefix = require('prefix');
 
   var BoardController = function ($scope, $http, $timeout, $routeParams) {
     $scope.partial = prefix.partials + '/board.html';
@@ -26,6 +27,20 @@ define(function (require) {
     $scope.toggleDropDown = function () {
       $scope.current.action_bar_dropdown = !$scope.current.action_bar_dropdown;
     };
+
+    $scope.read = function ($event) {
+      var $a = $($event.currentTarget);
+      // console.log($event.currentTarget);
+
+      // var leftOriginal = parseInt($a.css('left'), 10);
+      // if (isNaN(leftOriginal)) {
+      //   leftOriginal = 0;
+      // }
+      if ($event.gesture.deltaX > 42) {
+        return;
+      }
+      $a.css('left', $event.gesture.deltaX + 'px');
+    }
   };
 
   BoardController.$inject = ['$scope', '$http', '$timeout', '$routeParams'];
