@@ -1,0 +1,75 @@
+@temp-panel-width: 150px;
+.panel {
+  width: @temp-panel-width;
+  height: 100%;
+  position: absolute;
+  z-index: 999;
+  left: -@temp-panel-width;
+  font-size: 18px;
+  color: #fff;
+  background-color: #646464;
+  -webkit-transition: left 0.2s ease-in-out;
+  .handler {
+    width: @touch-able;
+    height: @touch-able;
+    line-height: @touch-able;
+    text-align: left;
+    padding: 0 16px;
+    display: inline-block;
+    position: absolute;
+    right: -(@touch-able + 16px * 2);
+    -webkit-transition: right 0.2s ease-in-out;
+  }
+  h4 {
+    line-height: @touch-able - 1;
+    text-indent: 16px;
+    border-bottom: solid 1px #ccc;
+  }
+  &.active {
+    left: 0;
+    box-shadow: 2px 0 6px rgba(66,66,66,0.5);
+    .handler {
+      right: 0;
+      text-align: right;
+    }
+  }
+  ul {
+    li {
+      height: @touch-able - 1;
+      line-height: @touch-able - 1;
+      font-size: 16px;
+      border-bottom: solid 1px #888;
+      clear: both;
+      position: relative;
+      label {
+        position: absolute;
+        text-indent: 8px;
+        width: 100%;
+        display: inline-block;
+        z-index: @z-index-panel-checkbox-label;
+      }
+      i {
+        position: absolute;
+        right: 8px;
+        top: 16px;
+        z-index: @z-index-panel-checkbox-icon;
+        color: #333;
+        visibility: hidden;
+      }
+      input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        -webkit-appearance: none;
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: 1px 1px 2px rgba(51, 51, 51, 0.25);
+        position: absolute;
+        right: 8px;
+        top: 16px;
+        &:checked ~ i {
+          visibility: visible;
+        }
+      }
+    }
+  }
+}

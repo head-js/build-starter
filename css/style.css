@@ -20,6 +20,20 @@
   bottom: 0;
   left: 0;
 }
+#slidable {
+  width: 200%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: left 0.4s ease, right 0.4s ease;
+}
+#slidable.slide-0 {
+  left: 0%;
+}
+#slidable.slide-1 {
+  left: -100%;
+}
 .screen,
 .board {
   position: relative;
@@ -27,7 +41,7 @@
   overflow-y: auto;
 }
 .screen {
-  width: 100%;
+  width: 50%;
   height: 100%;
   display: inline-block;
   font-size: 28px;
@@ -347,6 +361,78 @@
 .pie-menu-bottom > ul > li:nth-child(2) > i {
   -webkit-transform: rotate(-30deg);
 }
+.panel {
+  width: 150px;
+  height: 100%;
+  position: absolute;
+  z-index: 999;
+  left: -150px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #646464;
+  -webkit-transition: left 0.2s ease-in-out;
+}
+.panel .handler {
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  text-align: left;
+  padding: 0 16px;
+  display: inline-block;
+  position: absolute;
+  right: -80px;
+  -webkit-transition: right 0.2s ease-in-out;
+}
+.panel h4 {
+  line-height: 47px;
+  text-indent: 16px;
+  border-bottom: solid 1px #ccc;
+}
+.panel.active {
+  left: 0;
+  box-shadow: 2px 0 6px rgba(66, 66, 66, 0.5);
+}
+.panel.active .handler {
+  right: 0;
+  text-align: right;
+}
+.panel ul li {
+  height: 47px;
+  line-height: 47px;
+  font-size: 16px;
+  border-bottom: solid 1px #888;
+  clear: both;
+  position: relative;
+}
+.panel ul li label {
+  position: absolute;
+  text-indent: 8px;
+  width: 100%;
+  display: inline-block;
+  z-index: 3;
+}
+.panel ul li i {
+  position: absolute;
+  right: 8px;
+  top: 16px;
+  z-index: 2;
+  color: #333;
+  visibility: hidden;
+}
+.panel ul li input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  -webkit-appearance: none;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 1px 1px 2px rgba(51, 51, 51, 0.25);
+  position: absolute;
+  right: 8px;
+  top: 16px;
+}
+.panel ul li input[type="checkbox"]:checked ~ i {
+  visibility: visible;
+}
 /* 3. Basic Styles for Content(Text) */
 .board ul li {
   height: 47px;
@@ -354,31 +440,16 @@
   border-bottom: solid 1px #ddd;
   font-size: 16px;
   position: relative;
-}
-.board ul li::before,
-.board ul li::after {
-  position: absolute;
-  top: 0;
-  background-color: #ccc;
-  padding: 0 16px;
-  z-index: -1;
-}
-.board ul li::before {
-  content: "\00D7";
-  left: 0;
-}
-.board ul li::after {
-  content: "\2606";
-  right: 0;
+  background-color: #fafafa;
 }
 .board ul li a {
   display: block;
-  width: 100%;
-  position: absolute;
-  left: 0;
+  width: 96%;
   text-decoration: none;
   color: #333;
-  background-color: #fafafa;
+  font-size: 14px;
+  text-indent: 8px;
+  overflow-x: hidden;
 }
 .board ul li i {
   display: inline-block;

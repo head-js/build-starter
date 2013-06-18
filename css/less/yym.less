@@ -9,13 +9,18 @@
   bottom: 0;
   left: 0;
 }
-// #scrollable {
-//   height: 100%;
-//   position:absolute;
-//   top:0;
-//   left:0;
-//   -webkit-transition: left 0.4s ease, right 0.4s ease;
-// }
+
+@temp-count-of-boards: 2;
+#slidable {
+  width: 100% * @temp-count-of-boards;
+  height: 100%;
+  position:absolute;
+  top:0;
+  left:0;
+  -webkit-transition: left 0.4s ease, right 0.4s ease;
+  &.slide-0 { left: 100% * 0 ;}
+  &.slide-1 { left: 100% * -1 ;}
+}
 
 .screen, .board {
   position: relative;
@@ -23,7 +28,7 @@
   overflow-y: auto;
 }
 .screen {
-  width: 100%;
+  width: 100% / @temp-count-of-boards;
   height: 100%;
   display:inline-block;
   font-size:28px;

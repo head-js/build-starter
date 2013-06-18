@@ -4,10 +4,10 @@ define(function(require) {
       prefix  = require('prefix');
 
   app.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/fav', {
-      templateUrl: prefix.partials + '/fav.html',
-      controller: 'yanxi.ctrl.Fav'
-    });
+    // $routeProvider.when('/fav', {
+    //   templateUrl: prefix.partials + '/fav.html',
+    //   controller: 'yanxi.ctrl.Fav'
+    // });
 
     $routeProvider.when('/board/:id', {
       templateUrl: prefix.partials + '/board.html',
@@ -19,7 +19,7 @@ define(function(require) {
       controller: 'yanxi.ctrl.Post'
     });
 
-    $routeProvider.otherwise({redirectTo: '/fav'});
+    $routeProvider.otherwise({redirectTo: '/board/stockreport'});
   }]);
 
   return app;

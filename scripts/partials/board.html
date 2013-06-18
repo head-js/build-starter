@@ -2,30 +2,43 @@
   <div class="spin"></div>
 </div>
 
-<div class="action-bar-top" ng-class="{'action-bar-hide': !settings.hasTop}">
-  <a class='action-bar-back' ng-href='#/fav'></a>
+<div class="action-bar-top">
   <div class="action-bar-title">{{title}}</div>
-  <div class="drop-down">
-    <a class="toggle" ng-click="toggleDropDown()">
-      <i class="icon-circle-blank"></i>
-    </a>
-    <ul class="bookmark" ng-class="{'on': current.action_bar_dropdown}">
-      <li><i class="icon-circle-blank"></i> new</li>
-      <li><i class="icon-star"></i> star</li>
-      <li><i class="icon-circle"></i> all</li>
-    </ul>
-  </div>
 </div>
 
-<div class="screen">
-<div class="board has-bar-top" id="brd-board">
+<div class="panel" ng-class="{'active': layout.panel.active}">
+  <i class="handler" ng-class="{true:'icon-ok', false:'icon-tags'}[layout.panel.active]"
+    ng-click="togglePanel()"></i>
+  <h4>Filter</h4>
   <ul>
-    <li class="flag-{{pst.flag}}" ng-repeat="pst in posts">
-      <a hm-dragright="read($event)">
-        <span class='id-width'>{{pst.owner}}</span>
-        <span>{{pst.title}}</span>
-      </a>
+    <li ng-repeat="tag in tags">
+      <label for="{{tag.name}}">{{tag.name}}</label>
+      <input type="checkbox" id="{{tag.name}}" ng-checked="tag.checked" ng-model="tag.checked" />
+      <i class="icon-ok"></i>
     </li>
   </ul>
 </div>
+
+<div id="slidable" class="slide-{{slide}}">
+  <div class="screen">
+    <div class="board" ng-class="{'has-bar-top': layout.actionbar.hasTop}" id="brd-board">
+      <ul>
+        <li class="flag-{{pst.flag}}" ng-repeat="pst in posts">
+          <a ng-click="readContent(pst.id)">
+            <span>{{pst.title}}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="screen" hm-swiperight="back()">
+    <div class="board" ng-class="{'has-bar-top': layout.actionbar.hasTop}" id="brd-post">
+      <div class="post">
+        <div class="post-title">{{post.title}}</div>
+        <div class="post-owner">{{post.owner}}</div>
+        <div class="post-content">{{post.content}}</div>
+      </div>
+    </div>
+  </div>
 </div>

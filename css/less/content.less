@@ -6,29 +6,30 @@
     border-bottom: solid 1px #ddd;
     font-size: 16px;
     position: relative;
-    &::before, &::after {
-      position: absolute;
-      top: 0;
-      background-color: #ccc;
-      padding: 0 16px;
-      z-index: -1;
-    }
-    &::before {
-      content: "\00D7";
-      left: 0;
-    }
-    &::after {
-      content: "\2606";
-      right: 0;
-    }
+    background-color: #fafafa;
+    // &::before, &::after {
+    //   position: absolute;
+    //   top: 0;
+    //   background-color: #ccc;
+    //   padding: 0 16px;
+    //   z-index: -1;
+    // }
+    // &::before {
+    //   content: "\00D7";
+    //   left: 0;
+    // }
+    // &::after {
+    //   content: "\2606";
+    //   right: 0;
+    // }
     a {
       display: block;
-      width: 100%;
-      position: absolute;
-      left: 0;
+      width: 96%;
       text-decoration: none;
       color: #333;
-      background-color: #fafafa;
+      font-size: 14px;
+      text-indent: 8px;
+      overflow-x: hidden;
     }
     i {
       display: inline-block;

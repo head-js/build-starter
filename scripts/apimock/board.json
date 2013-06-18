@@ -1,14 +1,14 @@
 [
-  { "id": "1", "flag": "0", "owner": "ls", "title": "Re: 16pf的积分方式", "posttime": "2012.01.03 12:48" },
-  { "id": "2", "flag": "0", "owner": "delvdelvport", "title": "Re: 蛇叔复活了", "posttime": "2012.01.03 12:48" },
-  { "id": "3", "flag": "1", "owner": "FBMgg", "title": "Re: 今日冷笑话", "posttime": "2012.01.03 12:48" },
-  { "id": "4", "flag": "0", "owner": "ls", "title": "Re: 16pf的积分方式", "posttime": "2012.01.03 12:48" },
-  { "id": "5", "flag": "1", "owner": "ls", "title": "Re: 16pf的积分方式", "posttime": "2012.01.03 12:48" },
-  { "id": "6", "flag": "1", "owner": "ls", "title": "Forest", "posttime": "2012.01.03 12:48" },
-  { "id": "7", "flag": "0", "owner": "ls", "title": "Forest 2", "posttime": "2012.01.03 12:48" },
-  { "id": "8", "flag": "0", "owner": "ls", "title": "Forest 3", "posttime": "2012.01.03 12:48" },
-  { "id": "9", "flag": "0", "owner": "ls", "title": "Forest 4", "posttime": "2012.01.03 12:48" },
-  { "id": "10", "flag": "0", "owner": "ls", "title": "Forest 2", "posttime": "2012.01.03 12:48" },
-  { "id": "11", "flag": "2", "owner": "ls", "title": "Forest 3", "posttime": "2012.01.03 12:48" },
-  { "id": "12", "flag": "0", "owner": "ls", "title": "Forest 4", "posttime": "2012.01.03 12:48" }
+  { "id": "1", "tags": ["it_news"], "owner": "ls", "title": "002179, 中航光电, 增资沈阳兴华 期待未来快速增长", "posttime": "2012.01.03 12:48" },
+  { "id": "2", "tags": ["it_news"], "owner": "delvdelvport", "title": "Re: 蛇叔复活了", "posttime": "2012.01.03 12:48" },
+  { "id": "3", "tags": ["funny"], "owner": "FBMgg", "title": "Re: 今日冷笑话", "posttime": "2012.01.03 12:48" },
+  { "id": "4", "tags": ["funny"], "owner": "ls", "title": "Re: 16pf的积分方式", "posttime": "2012.01.03 12:48" },
+  { "id": "5", "tags": ["funny"], "owner": "ls", "title": "Re: 16pf的积分方式", "posttime": "2012.01.03 12:48" },
+  { "id": "6", "tags": ["funny"], "owner": "ls", "title": "Forest", "posttime": "2012.01.03 12:48" },
+  { "id": "7", "tags": ["it_news"], "owner": "ls", "title": "Forest 2", "posttime": "2012.01.03 12:48" },
+  { "id": "8", "tags": ["it_news"], "owner": "ls", "title": "Forest 3", "posttime": "2012.01.03 12:48" },
+  { "id": "9", "tags": ["it_news"], "owner": "ls", "title": "Forest 4", "posttime": "2012.01.03 12:48" },
+  { "id": "10", "tags": ["it_news"], "owner": "ls", "title": "Forest 2", "posttime": "2012.01.03 12:48" },
+  { "id": "11", "tags": ["stock"], "owner": "ls", "title": "Forest 3", "posttime": "2012.01.03 12:48" },
+  { "id": "12", "tags": ["it_news"], "owner": "ls", "title": "Forest 4", "posttime": "2012.01.03 12:48" }
 ]
