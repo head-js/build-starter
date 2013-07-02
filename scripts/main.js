@@ -2,7 +2,7 @@ define(function(require) {
   var $ = require('jquery');
 
   var Settings = require('src/settings')
-  window.Yanxi = new Settings({ appRoot: "/notset/" });
+  window.YYM = new Settings({ apiRoot: "http://asimov.eu01.aws.af.cm/" });
 
   // https://github.com/tnajdek/angular-requirejs-seed
   // https://github.com/jhiemer/angularjs-requirejs-testacular
@@ -14,12 +14,5 @@ define(function(require) {
     var $html = $('html');
     angular.bootstrap($html, [app.name]);
     $html.addClass('ng-app');
-
-    var YYM = require('yym');
-    window.YYM.resize(true);
-
-    $(window).on('orientationchange', function() {
-      window.YYM.resize(true);
-    });
   });
 });

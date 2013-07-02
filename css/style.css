@@ -70,6 +70,18 @@
   box-shadow: 0 0 35px #333;
   -webkit-animation: spin 0.8s infinite ease;
 }
+.bar-top {
+  height: 24px;
+  line-height: 24px;
+  position: fixed;
+  background-color: rgba(11, 61, 146, 0.9);
+  z-index: 99;
+  left: 0;
+  right: 0;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+}
 /* 2. Action Bar */
 .action-bar-top,
 .action-bar-bottom {
@@ -248,21 +260,32 @@
   text-align: center;
   line-height: 48px;
 }
+.board.has-action-bar-top:before,
+.board.has-action-bar-bottom:after,
 .board.has-bar-top:before,
 .board.has-bar-bottom:after {
   width: 100%;
-  height: 48px;
   /*background-color: rgba(255, 0, 0, 0.1);*/
 
   position: relative;
   display: block;
   content: "";
 }
+.board.has-action-bar-top:before {
+  top: 0;
+  height: 48px;
+}
+.board.has-action-bar-bottom:after {
+  bottom: 0;
+  height: 48px;
+}
 .board.has-bar-top:before {
   top: 0;
+  height: 24px;
 }
 .board.has-bar-bottom:after {
   bottom: 0;
+  height: 24px;
 }
 .action-bar-back {
   height: 48px;
@@ -447,7 +470,7 @@
   width: 96%;
   text-decoration: none;
   color: #333;
-  font-size: 14px;
+  font-size: 15px;
   text-indent: 8px;
   overflow-x: hidden;
 }
@@ -464,6 +487,9 @@
 .board ul li .id-width {
   display: inline-block;
   width: 120px;
+  font-weight: bold;
+}
+.board ul li.flag-0 {
   font-weight: bold;
 }
 .board ul li.flag-0 i::before {
@@ -483,14 +509,23 @@
 .post {
   font-size: 16px;
 }
-.post-owner {
+.post-title {
+  font-size: 18px;
   line-height: 32px;
 }
-.post-title {
-  line-height: 32px;
+.post-meta {
+  height: 20px;
+  line-height: 20px;
+  box-sizing: border-box;
+  border-bottom: 1px dashed #ccc;
+  font-weight: normal;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 .post-content {
   white-space: normal;
+  font-size: 15px;
+  line-height: 175%;
 }
 button {
   width: 50px;

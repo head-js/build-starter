@@ -1,3 +1,16 @@
+.bar-top {
+  height: @view-able;
+  line-height: @view-able;
+  position: fixed;
+  background-color: @color-blue-dark-trans;
+  z-index: 99;
+  left: 0;
+  right: 0;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+}
+
 /* 2. Action Bar */
 .action-bar-top, .action-bar-bottom {
   font-size:48px;
@@ -194,16 +207,21 @@
   }
 }
 
-.board.has-bar-top:before, .board.has-bar-bottom:after {
+.board.has-action-bar-top:before,
+.board.has-action-bar-bottom:after,
+.board.has-bar-top:before,
+.board.has-bar-bottom:after {
   width: 100%;
-  height: 48px;
   /*background-color: rgba(255, 0, 0, 0.1);*/
   position: relative;
   display: block;
   content: "";
 }
-.board.has-bar-top:before { top:0; }
-.board.has-bar-bottom:after { bottom:0; }
+
+.board.has-action-bar-top:before { top:0; height: @touch-able; }
+.board.has-action-bar-bottom:after { bottom:0; height: @touch-able; }
+.board.has-bar-top:before { top:0; height: @view-able; }
+.board.has-bar-bottom:after { bottom:0; height: @view-able; }
 
 .action-bar-back {
   height: 48px;

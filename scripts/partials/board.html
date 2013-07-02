@@ -2,30 +2,15 @@
   <div class="spin"></div>
 </div>
 
-<div class="action-bar-top">
-  <div class="action-bar-title">{{title}}</div>
-</div>
-
-<div class="panel" ng-class="{'active': layout.panel.active}">
-  <i class="handler" ng-class="{true:'icon-ok', false:'icon-tags'}[layout.panel.active]"
-    ng-click="togglePanel()"></i>
-  <h4>Filter</h4>
-  <ul>
-    <li ng-repeat="tag in tags">
-      <label for="{{tag.name}}">{{tag.name}}</label>
-      <input type="checkbox" id="{{tag.name}}" ng-checked="tag.checked" ng-model="tag.checked" />
-      <i class="icon-ok"></i>
-    </li>
-  </ul>
-</div>
+<div class="bar-top">{{title}}</div>
 
 <div id="slidable" class="slide-{{slide}}">
   <div class="screen">
-    <div class="board" ng-class="{'has-bar-top': layout.actionbar.hasTop}" id="brd-board">
+    <div class="board" ng-class="{'has-bar-top': layout.bar.hasTop}" id="brd-board">
       <ul>
         <li class="flag-{{pst.flag}}" ng-repeat="pst in posts">
-          <a ng-click="readContent(pst.id)">
-            <span>{{pst.title}}</span>
+          <a ng-click="readContent(pst)">
+            <span>{{pst.code}}, {{pst.title}}</span>
           </a>
         </li>
       </ul>
@@ -33,11 +18,11 @@
   </div>
 
   <div class="screen" hm-swiperight="back()">
-    <div class="board" ng-class="{'has-bar-top': layout.actionbar.hasTop}" id="brd-post">
+    <div class="board" ng-class="{'has-bar-top': layout.bar.hasTop}" id="brd-post">
       <div class="post">
-        <div class="post-title">{{post.title}}</div>
-        <div class="post-owner">{{post.owner}}</div>
-        <div class="post-content">{{post.content}}</div>
+        <h1 class="post-title">{{post.code}}, {{post.title}}</h1>
+        <h2 class="post-meta">{{post.created}}</h2>
+        <artile class="post-content" ng-bind-html-unsafe="post.content"></article>
       </div>
     </div>
   </div>

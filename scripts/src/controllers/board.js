@@ -3,15 +3,12 @@ define(function (require) {
       _      = require('underscore'),
       prefix = require('prefix');
 
-  var BoardController = function ($scope, $http, $timeout, $routeParams) {
+  var BoardController = function ($scope, $http, $routeParams) {
     $scope.partial = prefix.partials + '/board.html';
 
     $scope.layout = {
-      actionbar: {
+      bar: {
         hasTop: true
-      },
-      panel: {
-        active: false
       }
     };
 
@@ -26,12 +23,10 @@ define(function (require) {
     });
 
     function _updatePosts (callback) {
-      $timeout(function () {
-        $http.get(prefix.api + 'board.json').success(function(data) {
-          $scope._posts = data;
-          callback();
-        });
-      }, 500);
+      $http.get(prefix.api + 'report').success(function (data) {
+        $scope._posts = data;
+        callback();
+      });
     }
 
     function _aggregateTags (posts) {
@@ -47,38 +42,50 @@ define(function (require) {
       });
     }
 
-    function _filterByTags (posts, tags) {
-      return _.filter(posts, function (p) {
-        return _.intersection(p.tags, tags).length > 0;
+    function _prepareContent (content) {
+      return content.replace(/\n/g, "<br/>");
+    }
+
+    function _setRead (post) {
+      post.flag = 1;
+      var data = JSON.stringify({ "ids": [post.id] });
+      $http.put(prefix.api + "report/read", data).success(function (message) {
+        console.log(message);
       });
     }
 
-    $scope.togglePanel = function () {
-      if ($scope.layout.panel.active) {
-        var tags = $scope.tags;
-        var checkedTags = _.chain(tags)
-                           .filter(function (t) { return t.checked; })
-                           .map(function (t) { return t.name; })
-                           .value();
+    // function _filterByTags (posts, tags) {
+    //   return _.filter(posts, function (p) {
+    //     return _.intersection(p.tags, tags).length > 0;
+    //   });
+    // }
 
-        $scope.posts = _filterByTags($scope._posts, checkedTags);
+    // $scope.togglePanel = function () {
+    //   if ($scope.layout.panel.active) {
+    //     var tags = $scope.tags;
+    //     var checkedTags = _.chain(tags)
+    //                        .filter(function (t) { return t.checked; })
+    //                        .map(function (t) { return t.name; })
+    //                        .value();
 
-        $scope.layout.panel.active = false;
-      } else {
-        $scope.layout.panel.active = true;
-      }
-    };
+    //     $scope.posts = _filterByTags($scope._posts, checkedTags);
 
-    $scope.readContent = function (postId) {
+    //     $scope.layout.panel.active = false;
+    //   } else {
+    //     $scope.layout.panel.active = true;
+    //   }
+    // };
+
+    $scope.readContent = function (post) {
       $scope.loading = true;
-      $timeout(function () {
-        $http.get(prefix.api + 'post.json').success(function(data) {
-          console.log(data);
-          $scope.post = data;
-          $scope.slide = 1;
-          $scope.loading = false;
-        });
-      }, 500);
+      $http.get(prefix.api + "report/content/" + post.id).success(function (data) {
+        _setRead(post);
+
+        data.content = _prepareContent(data.content);
+        $scope.post = data;
+        $scope.slide = 1;
+        $scope.loading = false;
+      });
     };
 
     $scope.back = function () {
@@ -86,7 +93,7 @@ define(function (require) {
     };
   };
 
-  BoardController.$inject = ['$scope', '$http', '$timeout', '$routeParams'];
+  BoardController.$inject = ['$scope', '$http', '$routeParams'];
 
   return BoardController;
 });
