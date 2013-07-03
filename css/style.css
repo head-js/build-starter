@@ -70,9 +70,31 @@
   box-shadow: 0 0 35px #333;
   -webkit-animation: spin 0.8s infinite ease;
 }
-.bar-top {
-  height: 24px;
-  line-height: 24px;
+.board.has-action-bar-top:before,
+.board.has-action-bar-bottom:after,
+.board.has-message-bar-top:before {
+  width: 100%;
+  /*background-color: rgba(255, 0, 0, 0.1);*/
+
+  position: relative;
+  display: block;
+  content: "";
+}
+.board.has-action-bar-top:before {
+  top: 0;
+  height: 48px;
+}
+.board.has-action-bar-bottom:after {
+  bottom: 0;
+  height: 48px;
+}
+.board.has-message-bar-top:before {
+  top: 0;
+  height: 28px;
+}
+.message-bar-top {
+  height: 28px;
+  line-height: 28px;
   position: fixed;
   background-color: rgba(11, 61, 146, 0.9);
   z-index: 99;
@@ -259,33 +281,6 @@
   display: inline-block;
   text-align: center;
   line-height: 48px;
-}
-.board.has-action-bar-top:before,
-.board.has-action-bar-bottom:after,
-.board.has-bar-top:before,
-.board.has-bar-bottom:after {
-  width: 100%;
-  /*background-color: rgba(255, 0, 0, 0.1);*/
-
-  position: relative;
-  display: block;
-  content: "";
-}
-.board.has-action-bar-top:before {
-  top: 0;
-  height: 48px;
-}
-.board.has-action-bar-bottom:after {
-  bottom: 0;
-  height: 48px;
-}
-.board.has-bar-top:before {
-  top: 0;
-  height: 24px;
-}
-.board.has-bar-bottom:after {
-  bottom: 0;
-  height: 24px;
 }
 .action-bar-back {
   height: 48px;
@@ -489,40 +484,42 @@
   width: 120px;
   font-weight: bold;
 }
-.board ul li.flag-0 {
+.board ul li.flag-1 {
   font-weight: bold;
 }
-.board ul li.flag-0 i::before {
+.board ul li.flag-1 i::before {
   content: "+";
 }
-.board ul li.flag-1 a {
+.board ul li.flag-2 a {
   color: #ccc;
 }
-.board ul li.flag-1 i::before {
+.board ul li.flag-2 i::before {
   content: "";
 }
-.board ul li.flag-2 i::before {
+.board ul li.flag-3 i::before {
   content: "\2606";
   font-weight: 100;
   color: rgba(51, 51, 51, 0.8);
 }
 .post {
   font-size: 16px;
+  padding: 4px 16px 10px 16px;
 }
-.post-title {
-  font-size: 18px;
+.post h1 {
+  font-size: 16px;
   line-height: 32px;
+  overflow: hidden;
 }
-.post-meta {
-  height: 20px;
-  line-height: 20px;
+.post h2 {
+  height: 24px;
+  line-height: 24px;
   box-sizing: border-box;
   border-bottom: 1px dashed #ccc;
   font-weight: normal;
   font-size: 12px;
-  margin-bottom: 10px;
 }
-.post-content {
+.post article {
+  margin-top: 10px;
   white-space: normal;
   font-size: 15px;
   line-height: 175%;

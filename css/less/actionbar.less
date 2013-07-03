@@ -1,4 +1,17 @@
-.bar-top {
+.board.has-action-bar-top:before,
+.board.has-action-bar-bottom:after,
+.board.has-message-bar-top:before {
+  width: 100%;
+  /*background-color: rgba(255, 0, 0, 0.1);*/
+  position: relative;
+  display: block;
+  content: "";
+}
+.board.has-action-bar-top:before { top:0; height: @touch-able; }
+.board.has-action-bar-bottom:after { bottom:0; height: @touch-able; }
+.board.has-message-bar-top:before { top:0; height: @view-able; }
+
+.message-bar-top {
   height: @view-able;
   line-height: @view-able;
   position: fixed;
@@ -206,22 +219,6 @@
     }
   }
 }
-
-.board.has-action-bar-top:before,
-.board.has-action-bar-bottom:after,
-.board.has-bar-top:before,
-.board.has-bar-bottom:after {
-  width: 100%;
-  /*background-color: rgba(255, 0, 0, 0.1);*/
-  position: relative;
-  display: block;
-  content: "";
-}
-
-.board.has-action-bar-top:before { top:0; height: @touch-able; }
-.board.has-action-bar-bottom:after { bottom:0; height: @touch-able; }
-.board.has-bar-top:before { top:0; height: @view-able; }
-.board.has-bar-bottom:after { bottom:0; height: @view-able; }
 
 .action-bar-back {
   height: 48px;

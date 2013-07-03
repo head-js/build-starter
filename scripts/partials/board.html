@@ -2,15 +2,15 @@
   <div class="spin"></div>
 </div>
 
-<div class="bar-top">{{title}}</div>
+<div class="message-bar-top">{{message}}</div>
 
 <div id="slidable" class="slide-{{slide}}">
   <div class="screen">
-    <div class="board" ng-class="{'has-bar-top': layout.bar.hasTop}" id="brd-board">
+    <div class="board" ng-class="{'has-message-bar-top': layout.messagebar.top}" id="brd-board">
       <ul>
         <li class="flag-{{pst.flag}}" ng-repeat="pst in posts">
           <a ng-click="readContent(pst)">
-            <span>{{pst.code}}, {{pst.title}}</span>
+            <span>{{pst.title}}</span>
           </a>
         </li>
       </ul>
@@ -18,12 +18,16 @@
   </div>
 
   <div class="screen" hm-swiperight="back()">
-    <div class="board" ng-class="{'has-bar-top': layout.bar.hasTop}" id="brd-post">
-      <div class="post">
-        <h1 class="post-title">{{post.code}}, {{post.title}}</h1>
-        <h2 class="post-meta">{{post.created}}</h2>
-        <artile class="post-content" ng-bind-html-unsafe="post.content"></article>
-      </div>
+    <div class="board" ng-class="{'has-message-bar-top': layout.messagebar.top}" id="brd-post">
+      <section class="post">
+        <h1>{{post.title}}</h1>
+        <h2>
+          {{post.code}}&nbsp;&nbsp;&nbsp;&nbsp;
+          {{post.name}}&nbsp;&nbsp;&nbsp;&nbsp;
+          {{post.created}}
+        </h2>
+        <article ng-bind-html-unsafe="post.content"></article>
+      </section>
     </div>
   </div>
 </div>

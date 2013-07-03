@@ -47,15 +47,15 @@
       font-weight: bold;
     }
   }
-  li.flag-0 {
+  li.flag-1 {
     font-weight: bold;
     i::before { content: "+"; }
   }
-  li.flag-1 {
+  li.flag-2 {
     a { color: #ccc; }
     i::before { content: ""; }
   }
-  li.flag-2 {
+  li.flag-3 {
     i::before {
       content: "\2606";
       font-weight: 100;
@@ -64,23 +64,29 @@
   }
 }
 
-.post { font-size: 16px; }
+.post {
+  font-size: 16px;
+  padding: 4px 16px 10px 16px;
+  h1 {
+    font-size: 16px;
+    line-height: 32px;
+    overflow: hidden;
+  }
+  h2 {
+    height: 24px;
+    line-height: 24px;
+    box-sizing: border-box;
+    border-bottom: 1px dashed #ccc;
+    font-weight: normal;
+    font-size: 12px;
+  }
+  article {
+    margin-top: 10px;
+    white-space: normal;
+    font-size: 15px;
+    line-height: 175%;
+  }
+}
 
-.post-title {
-  font-size: 18px;
-  line-height: 32px;
-}
-.post-meta {
-  height: 20px;
-  line-height: 20px;
-  box-sizing: border-box;
-  border-bottom: 1px dashed #ccc;
-  font-weight: normal;
-  font-size: 12px;
-  margin-bottom: 10px;
-}
-.post-content {
-  white-space: normal;
-  font-size: 15px;
-  line-height: 175%;
-}
+
+

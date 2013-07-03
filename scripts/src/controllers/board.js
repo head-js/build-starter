@@ -7,13 +7,13 @@ define(function (require) {
     $scope.partial = prefix.partials + '/board.html';
 
     $scope.layout = {
-      bar: {
-        hasTop: true
+      messagebar: {
+        top: true
       }
     };
 
     // first render
-    $scope.title = $routeParams.id;
+    $scope.message = $routeParams.id;
     $scope.loading = true;
     _updatePosts(function () {
       $scope.posts = $scope._posts;
@@ -47,7 +47,7 @@ define(function (require) {
     }
 
     function _setRead (post) {
-      post.flag = 1;
+      post.flag = 2;
       var data = JSON.stringify({ "ids": [post.id] });
       $http.put(prefix.api + "report/read", data).success(function (message) {
         console.log(message);
@@ -82,6 +82,10 @@ define(function (require) {
         _setRead(post);
 
         data.content = _prepareContent(data.content);
+
+        // FIXME
+        $('.screen:nth-child(2)').scrollTop(0);
+
         $scope.post = data;
         $scope.slide = 1;
         $scope.loading = false;
