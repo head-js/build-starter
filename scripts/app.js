@@ -1,10 +1,17 @@
 define(function (require) {
-  var angular     = require('angular'),
+  var angular = require('angular'),
+      factories = require('src/factories/__init__'),
+      services = require('src/services/__init__'),
       controllers = require('src/controllers/__init__');
 
   var hmTouchevents = require('angular-hammer');
 
-  var APP = angular.module('yanxi', ['yanxi.controllers', 'hmTouchevents']);
+  var APP = angular.module('yanxi', [
+    'yanxi.factories',
+    'yanxi.services',
+    'yanxi.controllers',
+    'hmTouchevents'
+  ]);
 
   // http://stackoverflow.com/q/12111936/707580
   // http://better-inter.net/enabling-cors-in-angular-js/

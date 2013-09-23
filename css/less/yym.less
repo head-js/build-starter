@@ -1,13 +1,17 @@
 /* 1. Basic YYM */
 #viewport {
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0;
   font-size:0;
   overflow:hidden;
   white-space:nowrap;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  background-color: @color-background;
+  &::before {
+    content: "\00d6_\00d6";
+    position: absolute; top: 38.2%; left: 0; right: 0;
+    font-size: 48px;
+    text-align: center;
+    color: #ccc;
+  }
 }
 
 @temp-count-of-boards: 2;
@@ -33,7 +37,6 @@
   display:inline-block;
   font-size:28px;
   vertical-align:top;
-  background-color: @color-background;
 }
 .board {
   width: 100%;

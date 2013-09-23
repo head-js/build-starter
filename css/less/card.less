@@ -13,18 +13,9 @@
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     background-color: #fff;
-    overflow-y: scroll;
+    overflow-y: auto;
     padding: 4px 20px 4px + @view-able + @touch-able + 4px;
-    // &::before, &::after {
-    //   content: "";
-    //   position: fixed;
-    //   width: 4px;
-    //   height: 4px;
-    //   bottom: 0;
-    //   // background-color: rgba(255,0,0,0.5);
-    // }
-    // &::before { left: 0; background-color: rgba(255,0,0,0.5); }
-    // &::after { right: 0; background-color: rgba(0,255,0,0.5); }
+    -webkit-transform: translate3d(0, 0, 0);
   }
 
   & > .hack-cover {
@@ -75,14 +66,6 @@
       }
       .op-native { display: none; }
     }
-    // &::after {
-    //   content: "";
-    //   position: absolute;
-    //   width: 4px;
-    //   height: 4px;
-    //   bottom: 0;
-    //   background-color: rgba(255,0,0,0.5);
-    // }
   }
 }
 

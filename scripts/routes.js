@@ -19,7 +19,8 @@ define(function(require) {
       controller: 'yanxi.ctrl.Post'
     });
 
-    $routeProvider.otherwise({redirectTo: '/board/stockreport'});
+    // $routeProvider.otherwise({redirectTo: '/board/stockreport'});
+    $routeProvider.otherwise({redirectTo: '/post/whatever'});
   }]);
 
   return app;
