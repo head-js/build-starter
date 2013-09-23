@@ -4,14 +4,14 @@
 #slidable{width:200%;height:100%;position:absolute;top:0;left:0;-webkit-transition:left 0.4s ease, right 0.4s ease}#slidable.slide-0{left:0}
 #slidable.slide-1{left:-100%}
 .screen,.board{position:relative;overflow-x:hidden;overflow-y:auto}
-.screen{width:50%;height:100%;display:inline-block;font-size:28px;vertical-align:top}
+.screen{width:100%;height:100%;display:inline-block;font-size:28px;vertical-align:top;background-color:#eee}
 .board{width:100%}
 .loading{position:fixed;top:0;right:0;bottom:0;left:0;background-color:rgba(33,33,33,0.5);z-index:9999}
 .loading>.spin{margin:100px auto;width:90px;height:90px;border:solid 10px #333;border-radius:100px;border-left:solid 10px rgba(255,255,255,0);border-right:solid 10px rgba(255,255,255,0);box-shadow:0 0 35px #333;-webkit-animation:spin 0.8s infinite ease}
-.board.has-action-bar-top:before,.board.has-action-bar-bottom:after,.board.has-message-bar-top:before{width:100%;position:relative;display:block;content:""}
-.board.has-action-bar-top:before{top:0;height:48px}
-.board.has-action-bar-bottom:after{bottom:0;height:48px}
-.board.has-message-bar-top:before{top:0;height:28px}
+.has-action-bar-top:before,.has-action-bar-bottom:after,.has-message-bar-top:before{width:100%;position:relative;display:block;content:""}
+.has-action-bar-top:before{top:0;height:48px}
+.has-action-bar-bottom:after{bottom:0;height:48px}
+.has-message-bar-top:before{top:0;height:28px}
 .message-bar-top{height:28px;line-height:28px;position:fixed;background-color:rgba(11,61,146,0.9);z-index:99;left:0;right:0;color:#fff;font-size:16px;text-align:center}
 .action-bar-top,.action-bar-bottom{font-size:48px;height:48px;position:fixed;background-color:rgba(11,61,146,0.9);z-index:99;left:0;right:0}
 .action-bar-top{top:0}.action-bar-top .drop-down{float:right;margin-top:-48px;font-size:18px}.action-bar-top .drop-down .toggle{display:block;line-height:48px;color:#fff;text-align:right;padding-right:16px}.action-bar-top .drop-down .toggle::after{content:"";position:absolute;width:16px;height:16px;right:8px;bottom:8px;background:-webkit-linear-gradient(-45deg, rgba(0,0,0,0) 0, rgba(0,0,0,0) 75%, #fff 76%, #fff 100%)}
@@ -50,6 +50,15 @@
 .panel ul li{height:47px;line-height:47px;font-size:16px;border-bottom:solid 1px #888;clear:both;position:relative}.panel ul li label{position:absolute;text-indent:8px;width:100%;display:inline-block;z-index:3}
 .panel ul li i{position:absolute;right:8px;top:16px;z-index:2;color:#333;visibility:hidden}
 .panel ul li input[type="checkbox"]{width:16px;height:16px;-webkit-appearance:none;background-color:#fff;border-radius:2px;box-shadow:1px 1px 2px rgba(51,51,51,0.25);position:absolute;right:8px;top:16px}.panel ul li input[type="checkbox"]:checked~i{visibility:visible}
+.card{position:fixed;top:0;right:0;bottom:0;left:0;padding:0;-webkit-transform:translate3d(0, 0, 0);-webkit-transition:-webkit-transform .3s ease}.card>section{height:100%;margin:4px 20px 0;box-sizing:border-box;border:solid 1px #ccc;border-top-left-radius:4px;border-top-right-radius:4px;background-color:#fff;overflow-y:scroll;padding:4px 20px 84px}
+.card>.hack-cover{position:absolute;z-index:10;height:8px;bottom:0}.card>.hack-cover::before,.card>.hack-cover::after{content:"";position:fixed;width:50%;height:8px;top:0;background-color:#eee}
+.card>.hack-cover::before{left:19px}
+.card>.hack-cover::after{right:19px}
+.card>.op{position:absolute;z-index:11;bottom:4px;width:100%;height:48px}.card>.op .op-vote{margin:0 20px;background-color:#eee;border-bottom-left-radius:4px;border-bottom-right-radius:4px;border:solid 1px #ccc;font-size:0px}.card>.op .op-vote a{width:45%;font-size:14px;box-sizing:border-box;display:inline-block;line-height:46px;text-align:center;color:#999;border-right:solid 1px #ccc}
+.card>.op .op-vote a:last-child{width:10%;border-right:none}
+.card>.op .op-native{display:none}
+.card-left{-webkit-transform:translate3d(-90%, 0, 0)}
+.card-right{-webkit-transform:translate3d(90%, 0, 0)}
 .board ul li{height:47px;line-height:47px;border-bottom:solid 1px #ddd;font-size:16px;position:relative;background-color:#fafafa}.board ul li a{display:block;width:96%;text-decoration:none;color:#333;font-size:15px;text-indent:8px;overflow-x:hidden}
 .board ul li i{display:inline-block;width:28px;text-align:center;font-style:normal}
 .board ul li small{display:inline-block;font-weight:normal}
@@ -58,7 +67,7 @@
 .board ul li.flag-2 a{color:#ccc}
 .board ul li.flag-2 i::before{content:""}
 .board ul li.flag-3 i::before{content:"\2606";font-weight:100;color:rgba(51,51,51,0.8)}
-.post{font-size:16px;padding:4px 16px 10px 16px}.post h1{font-size:16px;line-height:32px;overflow:hidden}
+.post{font-size:16px}.post h1{font-size:16px;line-height:32px;overflow:hidden}
 .post h2{height:24px;line-height:24px;box-sizing:border-box;border-bottom:1px dashed #ccc;font-weight:normal;font-size:12px}
 .post article{margin-top:10px;white-space:normal;font-size:15px;line-height:175%}
 button{width:50px;height:50px}

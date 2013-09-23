@@ -1,0 +1,94 @@
+// Card like design
+.card {
+  position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+  padding: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.3s ease;
+
+  & > section {
+    height: 100%;
+    margin: 4px 20px 0;
+    box-sizing: border-box;
+    border: solid 1px #ccc;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background-color: #fff;
+    overflow-y: scroll;
+    padding: 4px 20px 4px + @view-able + @touch-able + 4px;
+    // &::before, &::after {
+    //   content: "";
+    //   position: fixed;
+    //   width: 4px;
+    //   height: 4px;
+    //   bottom: 0;
+    //   // background-color: rgba(255,0,0,0.5);
+    // }
+    // &::before { left: 0; background-color: rgba(255,0,0,0.5); }
+    // &::after { right: 0; background-color: rgba(0,255,0,0.5); }
+  }
+
+  & > .hack-cover {
+    position: absolute;
+    z-index: @z-index-card-hack-cover;
+    height: 8px;
+    bottom: 0;
+    &::before, &::after {
+      content: "";
+      position: fixed;
+      width: 50%;
+      height: 8px;
+      top: 0;
+      background-color: @color-background;
+    }
+    &::before { left: 19px; }
+    &::after { right: 19px; }
+  }
+
+  & > .op {
+    position: absolute;
+    z-index: @z-index-card-op;
+    bottom: 4px;
+    width: 100%;
+    height: @touch-able;
+    & > {
+      .op-vote {
+        margin: 0 20px;
+        background-color: #eee;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border: solid 1px #ccc;
+        font-size: 0px;
+        a {
+          width: 45%;
+          font-size: 14px;
+          box-sizing: border-box;
+          display: inline-block;
+          line-height: @touch-able - 2px;
+          text-align: center;
+          color: #999;
+          border-right: solid 1px #ccc;
+        }
+        a:last-child {
+          width: 10%;
+          border-right: none;
+        }
+      }
+      .op-native { display: none; }
+    }
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   width: 4px;
+    //   height: 4px;
+    //   bottom: 0;
+    //   background-color: rgba(255,0,0,0.5);
+    // }
+  }
+}
+
+.card-left {
+  -webkit-transform: translate3d(-90%, 0, 0);
+}
+.card-right {
+  -webkit-transform: translate3d(90%, 0, 0);
+}

@@ -1,16 +1,18 @@
-.board.has-action-bar-top:before,
-.board.has-action-bar-bottom:after,
-.board.has-message-bar-top:before {
+//
+.has-action-bar-top:before,
+.has-action-bar-bottom:after,
+.has-message-bar-top:before {
   width: 100%;
   /*background-color: rgba(255, 0, 0, 0.1);*/
   position: relative;
   display: block;
   content: "";
 }
-.board.has-action-bar-top:before { top:0; height: @touch-able; }
-.board.has-action-bar-bottom:after { bottom:0; height: @touch-able; }
-.board.has-message-bar-top:before { top:0; height: @view-able; }
+.has-action-bar-top:before { top:0; height: @touch-able; }
+.has-action-bar-bottom:after { bottom:0; height: @touch-able; }
+.has-message-bar-top:before { top:0; height: @view-able; }
 
+//
 .message-bar-top {
   height: @view-able;
   line-height: @view-able;
