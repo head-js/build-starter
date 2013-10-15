@@ -1,39 +1,54 @@
 // Card like design
+@card-padding: 20px;
 .card {
-  position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   padding: 0;
   -webkit-transform: translate3d(0, 0, 0);
   -webkit-transition: -webkit-transform 0.3s ease;
 
   & > section {
-    height: 100%;
-    margin: 4px 20px 0;
+    position: absolute;
+    top: @view-able + 4px;
+    left: @card-padding;
+    right: @card-padding;
+    bottom: 4px;
     box-sizing: border-box;
     border: solid 1px #ccc;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    border-radius: 4px;
     background-color: #fff;
     overflow-y: auto;
-    padding: 4px 20px 4px + @view-able + @touch-able + 4px;
-    -webkit-transform: translate3d(0, 0, 0);
+    padding: 4px 20px 4px + @touch-able;
+    // -webkit-transform: translate3d(0, 0, 0);
   }
 
-  & > .hack-cover {
-    position: absolute;
-    z-index: @z-index-card-hack-cover;
-    height: 8px;
-    bottom: 0;
-    &::before, &::after {
-      content: "";
-      position: fixed;
-      width: 50%;
-      height: 8px;
-      top: 0;
-      background-color: @color-background;
+  .toggle-excerpt {
+    text-align: right;
+    i {
+      background-color: #f3f3f3;
+      border-radius: 4px;
+      padding: 6px;
+      color: #bbb;
     }
-    &::before { left: 19px; }
-    &::after { right: 19px; }
   }
+
+  // & > .hack-cover {
+  //   position: absolute;
+  //   z-index: @z-index-card-hack-cover;
+  //   height: 8px;
+  //   bottom: 0;
+  //   &::before, &::after {
+  //     content: "";
+  //     position: fixed;
+  //     width: 50%;
+  //     height: 8px;
+  //     top: 0;
+  //     background-color: @color-background;
+  //   }
+  //   &::before { left: 19px; }
+  //   &::after { right: 19px; }
+  // }
 
   & > .op {
     position: absolute;
@@ -70,8 +85,14 @@
 }
 
 .card-left {
-  -webkit-transform: translate3d(-90%, 0, 0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  & > section {
+    right: -@card-padding / 2;
+  }
 }
 .card-right {
-  -webkit-transform: translate3d(90%, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+  & > section {
+    left: -@card-padding / 2;
+  }
 }
