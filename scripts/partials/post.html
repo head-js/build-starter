@@ -10,7 +10,7 @@
        ng-class="{'has-message-bar-top': layout.messagebar.top,
                   'card-left': post.pos_ == 'left',
                   'card-right': post.pos_ == 'right' }"
-       ng-repeat="post in posts">
+       ng-repeat="post in posts | filter: { visible_: true }">
     <section ng-switch on="post.is_excerpt_">
       <h1>{{post.title}}</h1>
       <h2>

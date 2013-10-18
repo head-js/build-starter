@@ -51,6 +51,7 @@ define(function (require) {
 
         d.zindex_ = 100000 - d.id;
         d.pos_ = 'right';
+        d.visible_ = true;
         d.read_ = false;
         return d;
       });
@@ -58,6 +59,12 @@ define(function (require) {
       adapted_data[0].pos_ = 'center';
 
       return adapted_data;
+    }
+
+    function toggleVisible() {
+      // for (var i = $scope.posts.length - 1; i >= 0; i--) {
+      //   $scope.posts[i].visible_ = Math.abs(i - _current_post) <= 1;
+      // }
     }
 
     function nextPost() {
@@ -74,6 +81,7 @@ define(function (require) {
 
         _current_post += 1;
         if (_current_post < total_posts) {
+          toggleVisible();
           $scope.posts[_current_post].pos_ = 'center';
         }
       }
@@ -89,6 +97,7 @@ define(function (require) {
         }
 
         _current_post -= 1;
+        toggleVisible();
         $scope.posts[_current_post].pos_ = 'center';
       }
     }
@@ -119,21 +128,20 @@ define(function (require) {
         fData.fetch("reports/" + _since_id).then(function (data) {
           if (data.length > 0) {
             _since_id = data.slice(-1)[0].id;
+            var adapted_data = adapter(data);
 
-            $scope.posts = $scope.posts.concat(adapter(data));
+            if ($scope.posts.length === 0) {
+              adapted_data[0].pos_ = 'center';
+              adapted_data[0].visible_ = true;
 
-            // $scope.cached_posts = $scope.cached_posts.concat(adapter(data));
+              if (adapted_data[1]) {
+                adapted_data[1].visible_ = true;
+              }
 
-            // // the 1st time
-            // if ($scope.posts.length === 0) {
-            //   $scope.posts = [$scope.cached_posts[0]];
-            //   if ($scope.cached_posts[1]) {
-            //     $scope.posts.push($scope.cached_posts[1]);
-            //   }
-            //   if ($scope.cached_posts[2]) {
-            //     $scope.posts.push($scope.cached_posts[2]);
-            //   }
-            // }
+              $scope.posts = adapted_data;
+            } else {
+              $scope.posts = $scope.posts.concat(adapted_data);
+            }
 
             Msg.loading.end();
           } else {
