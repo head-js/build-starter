@@ -1,0 +1,11 @@
+{
+  "name": "umi-starter",
+  "version": "0.1.0",
+  "description": "Umi Starter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Albert Hbrls<shuaizhexu@gmail.com>",
+  "license": "MIT"
+}
