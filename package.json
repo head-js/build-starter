@@ -1,0 +1,7 @@
+{
+  "name": "@head.js/build-starter",
+  "private": true,
+  "devDependencies": {
+    "lerna": "3.22.1"
+  }
+}
